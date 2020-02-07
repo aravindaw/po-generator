@@ -1,0 +1,87 @@
+const I = actor();
+const { CBaseWebElement } = require('../CWebElements/CWebElements');
+
+class {{className}} {
+  constructor() {
+    this._{{productName}} = undefined;
+  }
+
+  get {{productName}}() {
+    return this._productName;
+  }
+  set productName(name) {
+    this._productName = name;
+  }
+  get successMessage() {
+    return new CBaseWebElement(this._successMessage);
+  }
+  get zurueckZumVersicherungscenterBtn() {
+    return new CBaseWebElement(this._zurueckZumVersicherungscenterBtn);
+  }
+  get onboardingQuestionTile() {
+    return new CBaseWebElement(this._onboardingQuestionTile);
+  }
+  get onboardingQuestionTileProduct() {
+    return new CBaseWebElement(this._onboardingQuestionTileProduct, this.productName);
+  }
+  get onboardingQuestionTileYesBtn() {
+    return new CBaseWebElement(
+      `${this._onboardingQuestionTileProduct}[contains(text(),'${this.productName}')]/../..${this._onboardingQuestionTileYesBtn}`
+    );
+  }
+  get onboardingQuestionTileNoBtn() {
+    return new CBaseWebElement(
+      `${this._onboardingQuestionTileProduct}[contains(text(),'${this.productName}')]/../..${this._onboardingQuestionTileNoBtn}`
+    );
+  }
+  get addOtherInsuranceBtn() {
+    return new CBaseWebElement(this._addOtherInsuranceBtn);
+  }
+
+  checkSuccessMessage() {
+    this.successMessage.waitForVisible();
+  }
+
+  addNewInsuranceFromTiles(productName) {
+    this.productName = productName;
+    this.onboardingQuestionTileYesBtn.click();
+  }
+
+  removeInsuranceFromTiles(productName) {
+    this.productName = productName;
+    this.onboardingQuestionTileNoBtn.click();
+  }
+
+  waitToLoad(t) {
+    this.successMessage.waitForVisible(t);
+  }
+
+  seeSpecialContractRequestSummaryText(summaryText) {
+    I.waitForText(summaryText, 5, '.ThankYouStep-description');
+  }
+  waitForLoadingCards(timeOut) {
+    this.onboardingQuestionTile.waitForVisible(timeOut);
+  }
+
+  async getProductCardNameList() {
+    return I.grabTextFrom({ xpath: this._onboardingQuestionTileProduct });
+  }
+
+  checkOnboardingCardIsNotVisible(productName) {
+    this._productName = productName;
+    this.onboardingQuestionTileProduct.isNotVisible();
+  }
+
+  checkBulletPoints() {
+    I.see('WIR FORDERN DIE DOKUMENTE AN');
+    I.see('WIR BENACHRICHTIGEN SIE');
+  }
+
+  clickAddOtherInsuranceBtn() {
+    this.addOtherInsuranceBtn.click();
+  }
+}
+
+module.exports = {
+  {{className}},
+};

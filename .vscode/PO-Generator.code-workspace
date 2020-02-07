@@ -1,0 +1,14 @@
+{
+    "folders": [
+        {
+            "path": "/home/aravinda/projects/chrome-extention/PO-Generator"
+        }
+    ],
+    "settings": {
+        "jshint.options": {
+            "esversion": 9
+        },
+        "prettier.singleQuote": true,
+        "prettier.printWidth": 100
+    }
+}
