@@ -1,0 +1,29 @@
+{
+  "name": "po-generator",
+  "version": "1.0.0",
+  "description": "PO-Generator",
+  "main": "popup.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aravindaw/po-generator.git"
+  },
+  "keywords": [
+    "es6",
+    "POG"
+  ],
+  "author": "Aravinda Weerasekara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aravindaw/po-generator/issues"
+  },
+  "homepage": "https://github.com/aravindaw/po-generator#readme",
+  "devDependencies": {
+    "cross-env": "7.0.0"
+  },
+  "parserOptions": {
+    "ecmaVersion": 6
+  }
+}
