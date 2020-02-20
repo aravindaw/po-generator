@@ -1,50 +1,61 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Selenium Page Object Generator</title>
+    <link rel="stylesheet" href="assets/css/popup.css" />
+  </head>
 
-<head>
-  <title>Selenium Page Object Generator</title>
-  <link rel="stylesheet" href="assets/css/popup.css" />
-</head>
-
-<body>
-  <header>
-    <img src="assets/icons/icon.png"/ width="50" height="50"></br>
-    <span>Page Object Generator</span>
-    <span class="version"></span>
-  </header>
-  <div class="preloader separator"></div>
-  <fieldset>
-    <input type="text" id="model.name" value="" placeholder="ClassName (no spaces)" />
-    <legend>Target</legend>
-    <select id="target"></select>
-    <button class="generate">Generate</button>
-    <a class="downloader"></a>
-  </fieldset>
-  <fieldset>
-    <legend>Settings</legend>
-    <ul>
-      <li>
-        <label for="model.name">Class Name:</label>
-        <input type="text" id="model.name" value="" placeholder="ClassName (no spaces)" />
-      </li>
-      <li>
-        <label for="model.target">Destination Page Name:</label>
-        <input type="text" id="model.target" value="" placeholder="DestinationName (optional)" />
-      </li>
-    </ul>
-    <button class="options">Options</button>
-  </fieldset>
-  <fieldset class="share last">
-    <legend>Share</legend>
-    <a class="fa fa-envelope" title="Share this extension via email"></a>
-    <a class="fa fa-twitter" title="Share this extension on Twitter"></a>
-    <a class="fa fa-facebook" title="Share this extension on Facebook"></a>
-    <a class="fa fa-google-plus" title="Share this extension on Google Plus"></a>
-    <!--<a class="fa fa-pinterest"></a>-->
-    <a class="fa fa-linkedin" title="Share this extension on LinkedIn"></a>
-    <a class="fa fa-star" title="Rate this extension on Chrome Web Store"></a>
-  </fieldset>
-  <script src="assets/js/popup.js"></script>
-</body>
-
+  <body>
+    <header>
+      <img src="assets/icons/icon.png" width="50" height="50" /><br />
+      <span>Page Object Generator</span>
+    </header>
+    <div class="preloader separator"></div>
+    <fieldset>
+      <input type="text" id="model.name" value="" placeholder="ClassName (no spaces)" />
+      <input type="text" id="model.fileName" value="" placeholder="File Name (no spaces)" />
+      <input type="text" id="model.pathPrefix" value="" placeholder="Path Prefix (no spaces)" />
+      <input type="text" id="model.authorName" value="" placeholder="Author (optional)" /><br />
+      <label>Download as :</label>
+      <input type="radio" id="javascript" name="javascript" value="javascript" checked />
+      <label for="Javascript">Javascript</label>
+      <input type="radio" id="text" name="text" value="text" />
+      <label for="Text">Text</label>
+      <!-- <legend>Target</legend> -->
+      <br />
+      <button id="generate" class="generate">Generate</button>
+      <!-- <a class="downloader"></a> -->
+    </fieldset>
+    <fieldset>
+      <legend>Settings</legend>
+      <ul>
+        <li>
+          <label for="model.target">Exclude Elements:</label><br />
+          <input type="checkbox" id="div" name="div" value="div" />
+          <label for="vehicle1"> div</label><br />
+          <input type="checkbox" id="labels" name="labels" value="labels" />
+          <label for="labels"> labels</label><br />
+          <input type="checkbox" id="img" name="img" value="img" />
+          <label for="img"> img</label>
+        </li>
+        <input
+          type="text"
+          id="model.otherElements"
+          value=""
+          placeholder="Other Elements (optional)"
+        />
+      </ul>
+      <button id="option" class="options">Options</button>
+    </fieldset>
+    <fieldset class="share last">
+      <legend>Share</legend>
+      <a class="fa fa-envelope" title="Share this extension via email"></a>
+      <a class="fa fa-twitter" title="Share this extension on Twitter"></a>
+      <a class="fa fa-facebook" title="Share this extension on Facebook"></a>
+      <a class="fa fa-google-plus" title="Share this extension on Google Plus"></a>
+      <a class="fa fa-linkedin" title="Share this extension on LinkedIn"></a>
+      <a class="fa fa-star" title="Rate this extension on Chrome Web Store"></a>
+    </fieldset>
+    <script type="text/javascript" src="popup.js"></script>
+  </body>
 </html>
